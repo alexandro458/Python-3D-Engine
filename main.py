@@ -32,7 +32,7 @@ class VoxelEngine:
         pass
 
     def render(self):
-        self.ctx.clear(BG_COLOR)
+        self.ctx.clear(color=BG_COLOR)
         pg.display.flip()
         pass
 
