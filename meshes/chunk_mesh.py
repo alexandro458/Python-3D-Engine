@@ -15,7 +15,7 @@ class ChunkMesh(BaseMesh):
         self.attrs = ('in_position', 'voxel_id', 'face_id')
         self.vao = self.get_vao()
 
-    def get_vertex_array(self):
+    def get_vertex_data(self):
         mesh = build_chunk_mesh(
             chunk_voxels=self.chunk.voxels,
             format_size=self.format_size,
