@@ -1,7 +1,6 @@
 from settings import *
 from world_objects.chunk import Chunk
 
-
 class Scene:
     def __init__(self, app):
         self.app = app
@@ -12,3 +11,46 @@ class Scene:
 
     def render(self):
         self.chunk.render()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

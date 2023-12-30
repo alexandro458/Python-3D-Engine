@@ -6,9 +6,9 @@ class ShaderProgram:
         self.app = app
         self.ctx = app.ctx
         self.player = app.player
-        # ---------shaders--------#
+        # -------- shaders -------- #
         self.chunk = self.get_program(shader_name='chunk')
-        # ------------------------#
+        # ------------------------- #
         self.set_uniforms_on_init()
 
     def set_uniforms_on_init(self):
@@ -27,3 +27,46 @@ class ShaderProgram:
 
         program = self.ctx.program(vertex_shader=vertex_shader, fragment_shader=fragment_shader)
         return program
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
