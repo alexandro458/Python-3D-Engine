@@ -3,8 +3,10 @@ import moderngl as mgl
 import pygame as pg
 import sys
 from model import *
+from camera import Camera
 
-class VoxelEngine:
+
+class Engine:
     def __init__(self):
         pg.init()
         pg.display.gl_set_attribute(pg.GL_CONTEXT_MAJOR_VERSION, 3)
@@ -19,7 +21,6 @@ class VoxelEngine:
         self.ctx.gc_mode = 'auto'
 
         self.clock = pg.time.Clock()
-        self.delta_time = 0
         self.time = 0
 
         pg.event.set_grab(True)
@@ -27,7 +28,8 @@ class VoxelEngine:
 
         self.is_running = True
 
-        self.scene = Triangle(self)
+        self.camera = Camera(self)
+        self.scene = Cube(self)
 
     def handle_events(self):
         for event in pg.event.get():
@@ -35,7 +37,8 @@ class VoxelEngine:
                 self.is_running = False
 
     def update(self):
-        pass
+        self.time = pg.time.get_ticks() * 0.001
+        pg.display.set_caption(f'{self.clock.get_fps() :.0f}')
 
     def render(self):
         self.ctx.clear(color=BG_COLOR)
@@ -43,18 +46,18 @@ class VoxelEngine:
         self.scene.render()
 
         pg.display.flip()
-        pass
 
     def run(self):
         while self.is_running:
             self.handle_events()
             self.update()
             self.render()
+            self.clock.tick(60)
         self.scene.destroy()
         pg.quit()
         sys.exit()
 
 
 if __name__ == '__main__':
-    app = VoxelEngine()
+    app = Engine()
     app.run()
