@@ -2,6 +2,7 @@ from settings import *
 import moderngl as mgl
 import pygame as pg
 import sys
+from model import *
 
 class VoxelEngine:
     def __init__(self):
@@ -25,12 +26,8 @@ class VoxelEngine:
         pg.mouse.set_visible(False)
 
         self.is_running = True
-        self.on_init()
 
-    def on_init(self):
-        vertices = np.array([-0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, 0.5], dtype='f4')
-        self.vbo = self.ctx.buffer(vertices)
-        self.vao = self.ctx.simple_vertex_array(self.get_program('quad'), self.vbo, 'in_vert')
+        self.scene = Triangle(self)
 
     def handle_events(self):
         for event in pg.event.get():
@@ -41,28 +38,19 @@ class VoxelEngine:
         pass
 
     def render(self):
-        self.ctx.clear()
+        self.ctx.clear(color=BG_COLOR)
 
-        self.vao.render(mgl.TRIANGLE_FAN)
+        self.scene.render()
 
         pg.display.flip()
         pass
-
-    def get_program(self, shader_name):
-        with open(f'shaders/{shader_name}.vert') as file:
-            vertex_shader = file.read()
-
-        with open(f'shaders/{shader_name}.frag') as file:
-            fragment_shader = file.read()
-
-        program = self.ctx.program(vertex_shader=vertex_shader, fragment_shader=fragment_shader)
-        return program
 
     def run(self):
         while self.is_running:
             self.handle_events()
             self.update()
             self.render()
+        self.scene.destroy()
         pg.quit()
         sys.exit()
 
