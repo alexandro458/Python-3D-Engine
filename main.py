@@ -2,10 +2,10 @@ from settings import *
 import moderngl as mgl
 import pygame as pg
 import sys
-from model import *
 from camera import Camera
 from light import Light
-
+from mesh import Mesh
+from scene import Scene
 
 class Engine:
     def __init__(self):
@@ -32,7 +32,8 @@ class Engine:
 
         self.light = Light()
         self.camera = Camera(self)
-        self.scene = Cube(self)
+        self.mesh = Mesh(self)
+        self.scene = Scene(self)
 
     def handle_events(self):
         for event in pg.event.get():
@@ -41,7 +42,6 @@ class Engine:
 
     def update(self):
         self.camera.update()
-        self.scene.update()
 
         self.time = pg.time.get_ticks() * 0.001
         pg.display.set_caption(f'{self.clock.get_fps() :.0f}')
@@ -59,7 +59,7 @@ class Engine:
             self.handle_events()
             self.update()
             self.render()
-        self.scene.destroy()
+        self.mesh.destroy()
         pg.quit()
         sys.exit()
 
