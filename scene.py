@@ -18,6 +18,7 @@ class Scene:
         for x in range(-n, n, s):
             for z in range(-n, n, s):
                 add(Cube(app, pos=(x, -s, z)))
+        add(Planet(app, pos=(0, -2, -10)))
 
     def render(self):
         for obj in self.objects:
