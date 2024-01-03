@@ -13,3 +13,5 @@ BG_COLOR = glm.vec3(0.1, 0.16, 0.25)
 FOV = 50  # deg
 NEAR = 0.1
 FAR = 100
+SPEED = 0.05
+SENSITIVITY = 0.07

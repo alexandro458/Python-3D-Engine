@@ -4,6 +4,7 @@ import pygame as pg
 import sys
 from model import *
 from camera import Camera
+from light import Light
 
 
 class Engine:
@@ -22,12 +23,14 @@ class Engine:
 
         self.clock = pg.time.Clock()
         self.time = 0
+        self.delta_time = 0
 
         pg.event.set_grab(True)
         pg.mouse.set_visible(False)
 
         self.is_running = True
 
+        self.light = Light()
         self.camera = Camera(self)
         self.scene = Cube(self)
 
@@ -37,8 +40,12 @@ class Engine:
                 self.is_running = False
 
     def update(self):
+        self.camera.update()
+        self.scene.update()
+
         self.time = pg.time.get_ticks() * 0.001
         pg.display.set_caption(f'{self.clock.get_fps() :.0f}')
+        self.delta_time = self.clock.tick(60)
 
     def render(self):
         self.ctx.clear(color=BG_COLOR)
@@ -52,7 +59,6 @@ class Engine:
             self.handle_events()
             self.update()
             self.render()
-            self.clock.tick(60)
         self.scene.destroy()
         pg.quit()
         sys.exit()
