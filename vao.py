@@ -12,7 +12,7 @@ class VAO:
         # cube vao
         self.vaos["cube"] = self.get_vao(
             program=self.program.programs['default'],
-            vbo = self.vbo.vbos['cube'])
+            vbo=self.vbo.vbos['cube'])
 
 
     def get_vao(self, program, vbo):
