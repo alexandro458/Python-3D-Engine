@@ -83,14 +83,18 @@ class Sun(BaseModel):
 
 
 class CustomPlanet(ExtendedBaseModel):
-    def __init__(self, app, vao_name, tex_id, pos=(0, 0, 0), rot=(0, 0, 0), scale=(1, 1, 1), orbit_speed=50, orbit_radius=50):
+    def __init__(self, app, vao_name, tex_id, pos=(0, 0, 0), rot=(0, 0, 0), scale=(1, 1, 1), orbit_speed=50, orbit_radius=50, rotation_speed = 10):
         super().__init__(app, vao_name, tex_id, pos, rot, scale)
         self.orbit_radius = orbit_radius
         self.orbit_speed = orbit_speed
+        self.rotation_speed = rotation_speed
 
     def update(self):
         pos_tuple = self.calculate_orbit(self.orbit_radius, self.orbit_speed)
         self.pos = (pos_tuple[0], -2, pos_tuple[1])
+
+        rotation = self.calculate_rotation(self.rotation_speed)
+        self.rot.y = rotation
 
         self.m_model = self.get_model_matrix()
 
@@ -105,8 +109,13 @@ class CustomPlanet(ExtendedBaseModel):
 
         x = radius * np.cos(angle)
         z = radius * np.sin(angle)
-
         return x, z
+
+    def calculate_rotation(self, speed):
+        time = self.app.time
+        angle = speed * time
+        return angle
+
 
 class SkyBox(BaseModel):
     def __init__(self, app, vao_name='skybox', tex_id='skybox',

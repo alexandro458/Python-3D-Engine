@@ -23,7 +23,7 @@ class Scene:
         sun = self.planet_settings.sun
         sun_scale = self.planet_settings.sun.scale * SCALE_MULTIPLIER
         add(Sun(app, vao_name=sun.name, tex_id=sun.name, pos=(0, 0, 0),
-                              scale=(sun_scale, sun_scale, sun_scale)))
+                scale=(sun_scale, sun_scale, sun_scale)))
 
         self.set_planet_scene()
 
@@ -41,4 +41,5 @@ class Scene:
             add(CustomPlanet(app, vao_name=planet.name, tex_id=planet.name, pos=(0, -2, -10),
                              scale=(scale, scale, scale),
                              orbit_speed=planet.orbit_speed * ORBIT_SPEED_MULTIPLIER,
-                             orbit_radius=planet.orbit_radius * RADIUS_MULTIPLIER))
+                             orbit_radius=planet.orbit_radius * RADIUS_MULTIPLIER,
+                             rotation_speed=ROTATION_SPEED_MULTIPLIER * planet.rotation_speed * (1 / scale)))
