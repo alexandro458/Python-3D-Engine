@@ -8,10 +8,14 @@ class Texture:
     def __init__(self, ctx):
         self.ctx = ctx
         self.textures = {}
-        self.textures['earth'] = self.get_texture(path='obj/Earth/Textures/Diffuse_2K.png')
-        self.textures['mercury'] = self.get_texture(path='obj/Planets/Mercury/mercury.jpg')
         self.textures['skybox'] = self.get_texture_cube(dir_path='SkyBox/', ext='png')
+        self.textures['sun'] = self.get_texture(path='textures/sun.jpg')
+        self.set_planet_textures()
 
+    def set_planet_textures(self):
+        planets = ["mercury", "earth", "venus", "mars", "jupiter", "saturn", "uranus", "neptune"]
+        for planet in planets:
+            self.textures[planet] = self.get_texture(path=f'textures/{planet}.jpg')
 
     def get_texture_cube(self, dir_path, ext='png'):
         faces = ['right', 'left', 'top', 'bottom'] + ['front', 'back'][::-1]

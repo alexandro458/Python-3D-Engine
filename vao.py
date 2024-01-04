@@ -14,8 +14,12 @@ class VAO:
             program=self.program.programs['skybox'],
             vbo=self.vbo.vbos['skybox'])
 
-        self.planet_setters()
+        # sun vao
+        self.vaos["sun"] = self.get_vao(
+            program=self.program.programs['unlit'],
+            vbo=self.vbo.vbos['sun'])
 
+        self.planet_setters()
 
     def get_vao(self, program, vbo):
         vao = self.ctx.vertex_array(program, [(vbo.vbo, vbo.format, *vbo.attribs)])
@@ -26,12 +30,11 @@ class VAO:
         self.program.destroy()
 
     def planet_setters(self):
-        # earth vao
-        self.vaos["earth"] = self.get_vao(
-            program=self.program.programs['default'],
-            vbo=self.vbo.vbos['earth'])
+        self.set_planet_vao()
 
-        # earth vao
-        self.vaos["mercury"] = self.get_vao(
-            program=self.program.programs['default'],
-            vbo=self.vbo.vbos['mercury'])
+    def set_planet_vao(self):
+        planets = ["mercury", "earth", "venus", "mars", "jupiter", "saturn", "uranus", "neptune"]
+        for planet in planets:
+            self.vaos[planet] = self.get_vao(
+                program=self.program.programs['default'],
+                vbo=self.vbo.vbos[planet])

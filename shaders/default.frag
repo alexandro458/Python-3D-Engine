@@ -31,20 +31,38 @@ vec3 getLight(vec3 color){
     //specular light
     vec3 viewDir = normalize(camPos - fragPos);
     vec3 reflectDir = reflect(-lightDir, Normal);
-    float spec = pow(max(dot(viewDir, reflectDir), 0), 15);
+    float spec = pow(max(dot(viewDir, reflectDir), 0), 10);
     vec3 specular = spec * light.Is;
 
 
     return color * (ambient + diffuse + specular);
 }
 
+vec3 applyFog(vec3 color, vec3 fragPos, vec3 camPos, vec3 fogColor, float fogDensity, float fogStart, float fogEnd) {
+    float distance = length(camPos - fragPos);
+
+    float fogFactor = clamp((distance - fogStart) / (fogEnd - fogStart), 0.0, 1.0);
+
+    vec3 finalColor = mix(color, fogColor, fogFactor);
+
+    return finalColor;
+}
+
 void main() {
     float gamma = 2.2;
     vec3 color = texture(u_texture_0, uv_0).rgb;
-    //color = pow(color, vec3(gamma));
+    color = pow(color, vec3(gamma));
 
     color = getLight(color);
 
-    //color = pow(color, 1 / vec3(gamma));
+    color = pow(color, 1 / vec3(gamma));
+
+    vec3 fogColor = vec3(0.05, 0.05, 0.05);
+    float fogDensity = 0.1;
+    float fogStart = 300.0;
+    float fogEnd = 1500.0;
+
+    color = applyFog(color, fragPos, camPos, fogColor, fogDensity, fogStart, fogEnd);
+
     fragColor = vec4(color, 1.0);
 }

@@ -6,9 +6,15 @@ import pywavefront
 class VBO:
     def __init__(self, ctx):
         self.vbos = {}
-        self.vbos['earth'] = PlanetVBO(ctx)
+        self.ctx = ctx
         self.vbos['skybox'] = SkyBoxVBO(ctx)
-        self.vbos['mercury'] = PlanetVBO(ctx)
+        self.vbos['sun'] = PlanetVBO(ctx)
+        self.set_planet_vbo()
+
+    def set_planet_vbo(self):
+        planets = ["mercury", "earth", "venus", "mars", "jupiter", "saturn", "uranus", "neptune"]
+        for planet in planets:
+            self.vbos[planet] = PlanetVBO(self.ctx)
 
     def destroy(self):
         [vbo.destroy() for vbo in self.vbos.values()]

@@ -42,6 +42,7 @@ class Engine:
 
     def update(self):
         self.camera.update()
+        self.scene.update()
 
         self.time = pg.time.get_ticks() * 0.001
         pg.display.set_caption(f'{self.clock.get_fps() :.0f}')

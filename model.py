@@ -61,9 +61,41 @@ class ExtendedBaseModel(BaseModel):
         self.program['m_model'].write(self.m_model)
 
 
-class CustomPlanet(ExtendedBaseModel):
-    def __init__(self, app, vao_name, tex_id, pos=(0, 0, 0), rot=(-90, 0, 0), scale=(1, 1, 1)):
+class Sun(BaseModel):
+    def __init__(self, app, vao_name='sun', tex_id='sun', pos=(0, 0, 0), rot=(-90, 0, 0), scale=(1, 1, 1)):
         super().__init__(app, vao_name, tex_id, pos, rot, scale)
+        self.texture = self.app.mesh.texture.textures[self.tex_id]
+        self.on_init()
+
+    def update(self):
+        self.texture.use()
+        self.program['m_model'].write(self.m_model)
+        self.program['m_view'].write(self.app.camera.m_view)
+
+    def on_init(self):
+        # texture
+        self.program['u_texture_0'] = 0
+        self.texture.use()
+        # mvp
+        self.program['m_proj'].write(self.app.camera.m_proj)
+        self.program['m_view'].write(self.app.camera.m_view)
+        self.program['m_model'].write(self.m_model)
+
+
+class CustomPlanet(ExtendedBaseModel):
+    def __init__(self, app, vao_name, tex_id, pos=(0, 0, 0), rot=(0, 0, 0), scale=(1, 1, 1), orbit_speed=50, orbit_radius=50, rotation_speed = 10):
+        super().__init__(app, vao_name, tex_id, pos, rot, scale)
+        self.orbit_radius = orbit_radius
+        self.orbit_speed = orbit_speed
+        self.rotation_speed = rotation_speed
+
+    def update(self):
+        self.m_model = self.get_model_matrix()
+
+        self.texture.use()
+        self.program['m_model'].write(self.m_model)
+        self.program['m_view'].write(self.app.camera.m_view)
+        self.program['camPos'].write(self.app.camera.position)
 
 
 class SkyBox(BaseModel):

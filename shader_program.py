@@ -4,6 +4,7 @@ class ShaderProgram:
         self.programs = {}
         self.programs['default'] = self.get_shader_program('default')
         self.programs['skybox'] = self.get_shader_program('skybox')
+        self.programs['unlit'] = self.get_shader_program('unlit')
 
     def get_shader_program(self, shader_name):
         with open(f'shaders/{shader_name}.vert') as file:
