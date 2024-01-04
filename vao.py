@@ -9,20 +9,7 @@ class VAO:
         self.program = ShaderProgram(ctx)
         self.vaos = {}
 
-        # cube vao
-        self.vaos["cube"] = self.get_vao(
-            program=self.program.programs['default'],
-            vbo=self.vbo.vbos['cube'])
-
-        # cat vao
-        self.vaos["cat"] = self.get_vao(
-            program=self.program.programs['default'],
-            vbo=self.vbo.vbos['cat'])
-
-        # planet vao
-        self.vaos["planet"] = self.get_vao(
-            program=self.program.programs['default'],
-            vbo=self.vbo.vbos['planet'])
+        self.planet_setters()
 
 
     def get_vao(self, program, vbo):
@@ -32,3 +19,14 @@ class VAO:
     def destroy(self):
         self.vbo.destroy()
         self.program.destroy()
+
+    def planet_setters(self):
+        # earth vao
+        self.vaos["earth"] = self.get_vao(
+            program=self.program.programs['default'],
+            vbo=self.vbo.vbos['earth'])
+
+        # earth vao
+        self.vaos["mercury"] = self.get_vao(
+            program=self.program.programs['default'],
+            vbo=self.vbo.vbos['mercury'])
