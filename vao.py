@@ -14,10 +14,15 @@ class VAO:
             program=self.program.programs['default'],
             vbo=self.vbo.vbos['cube'])
 
-        # planet vao
+        # cat vao
         self.vaos["cat"] = self.get_vao(
             program=self.program.programs['default'],
             vbo=self.vbo.vbos['cat'])
+
+        # planet vao
+        self.vaos["planet"] = self.get_vao(
+            program=self.program.programs['default'],
+            vbo=self.vbo.vbos['planet'])
 
 
     def get_vao(self, program, vbo):

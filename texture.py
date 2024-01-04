@@ -10,7 +10,7 @@ class Texture:
         self.textures[1] = self.get_texture(path='textures/test2.jpg')
         self.textures[2] = self.get_texture(path='textures/test3.jpg')
         self.textures['cat'] = self.get_texture(path='obj/CatModel/cat_texture.jpg')
-        self.textures['earth'] = self.get_texture(path='obj/Earth/Textures/Diffuse_2K.png')
+        self.textures['planet'] = self.get_texture(path='obj/Earth/Textures/Diffuse_2K.png')
 
     def get_texture(self, path):
         texture = pg.image.load(path).convert()
