@@ -9,6 +9,11 @@ class VAO:
         self.program = ShaderProgram(ctx)
         self.vaos = {}
 
+        # skybox vao
+        self.vaos["skybox"] = self.get_vao(
+            program=self.program.programs['skybox'],
+            vbo=self.vbo.vbos['skybox'])
+
         self.planet_setters()
 
 

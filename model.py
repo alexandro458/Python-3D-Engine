@@ -34,7 +34,7 @@ class BaseModel:
         self.vao.render()
 
 
-class Planet(BaseModel):
+class ExtendedBaseModel(BaseModel):
     def __init__(self, app, vao_name='earth', tex_id='earth', pos=(0, 0, 0), rot=(-90, 0, 0), scale=(1, 1, 1)):
         super().__init__(app, vao_name, tex_id, pos, rot, scale)
         self.texture = self.app.mesh.texture.textures[self.tex_id]
@@ -61,6 +61,25 @@ class Planet(BaseModel):
         self.program['m_model'].write(self.m_model)
 
 
-class CustomPlanet(Planet):
+class CustomPlanet(ExtendedBaseModel):
     def __init__(self, app, vao_name, tex_id, pos=(0, 0, 0), rot=(-90, 0, 0), scale=(1, 1, 1)):
         super().__init__(app, vao_name, tex_id, pos, rot, scale)
+
+
+class SkyBox(BaseModel):
+    def __init__(self, app, vao_name='skybox', tex_id='skybox',
+                 pos=(0, 0, 0), rot=(0, 0, 0), scale=(1, 1, 1)):
+        super().__init__(app, vao_name, tex_id, pos, rot, scale)
+        self.on_init()
+
+    def update(self):
+        self.program['m_view'].write(glm.mat4(glm.mat3(self.camera.m_view)))
+
+    def on_init(self):
+        # texture
+        self.texture = self.app.mesh.texture.textures[self.tex_id]
+        self.program['u_texture_skybox'] = 0
+        self.texture.use(location=0)
+        # mvp
+        self.program['m_proj'].write(self.camera.m_proj)
+        self.program['m_view'].write(glm.mat4(glm.mat3(self.camera.m_view)))
