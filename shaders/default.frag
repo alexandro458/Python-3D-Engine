@@ -39,13 +39,10 @@ vec3 getLight(vec3 color){
 }
 
 vec3 applyFog(vec3 color, vec3 fragPos, vec3 camPos, vec3 fogColor, float fogDensity, float fogStart, float fogEnd) {
-    // Calcular la distancia desde la cámara al fragmento
     float distance = length(camPos - fragPos);
 
-    // Calcular el factor de niebla
     float fogFactor = clamp((distance - fogStart) / (fogEnd - fogStart), 0.0, 1.0);
 
-    // Mezclar el color del objeto con el color de la niebla
     vec3 finalColor = mix(color, fogColor, fogFactor);
 
     return finalColor;
