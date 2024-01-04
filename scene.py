@@ -1,7 +1,6 @@
 from model import *
 from planet import PlanetSettings
 from settings import *
-import numpy as np
 
 
 class Scene:
@@ -22,15 +21,10 @@ class Scene:
 
         sun = self.planet_settings.sun
         sun_scale = self.planet_settings.sun.scale * SCALE_MULTIPLIER
-        add(Sun(app, vao_name=sun.name, tex_id=sun.name, pos=(0, 0, 0),
-                scale=(sun_scale, sun_scale, sun_scale)))
+        self.sun = Sun(app, vao_name=sun.name, tex_id=sun.name, pos=(0, 0, 0),
+                       scale=(sun_scale, sun_scale, sun_scale))
 
         self.set_planet_scene()
-
-    def render(self):
-        for obj in self.objects:
-            obj.render()
-        self.skybox.render()
 
     def set_planet_scene(self):
         app = self.app
@@ -43,3 +37,30 @@ class Scene:
                              orbit_speed=planet.orbit_speed * ORBIT_SPEED_MULTIPLIER,
                              orbit_radius=planet.orbit_radius * RADIUS_MULTIPLIER,
                              rotation_speed=ROTATION_SPEED_MULTIPLIER * planet.rotation_speed * (1 / scale)))
+
+    def render(self):
+        for obj in self.objects:
+            obj.render()
+        self.sun.render()
+        self.skybox.render()
+
+    def update(self):
+        for planet in self.objects:
+            pos_tuple = self.calculate_orbit(planet.orbit_radius, planet.orbit_speed)
+            planet.pos = (pos_tuple[0], -2, pos_tuple[1])
+
+            rotation = self.calculate_rotation(planet.rotation_speed)
+            planet.rot.y = rotation
+
+    def calculate_orbit(self, radius, speed):
+        time = self.app.time
+        angle = speed * time
+
+        x = radius * np.cos(angle)
+        z = radius * np.sin(angle)
+        return x, z
+
+    def calculate_rotation(self, speed):
+        time = self.app.time
+        angle = speed * time
+        return angle

@@ -90,31 +90,12 @@ class CustomPlanet(ExtendedBaseModel):
         self.rotation_speed = rotation_speed
 
     def update(self):
-        pos_tuple = self.calculate_orbit(self.orbit_radius, self.orbit_speed)
-        self.pos = (pos_tuple[0], -2, pos_tuple[1])
-
-        rotation = self.calculate_rotation(self.rotation_speed)
-        self.rot.y = rotation
-
         self.m_model = self.get_model_matrix()
 
         self.texture.use()
         self.program['m_model'].write(self.m_model)
         self.program['m_view'].write(self.app.camera.m_view)
         self.program['camPos'].write(self.app.camera.position)
-
-    def calculate_orbit(self, radius, speed):
-        time = self.app.time
-        angle = speed * time
-
-        x = radius * np.cos(angle)
-        z = radius * np.sin(angle)
-        return x, z
-
-    def calculate_rotation(self, speed):
-        time = self.app.time
-        angle = speed * time
-        return angle
 
 
 class SkyBox(BaseModel):
