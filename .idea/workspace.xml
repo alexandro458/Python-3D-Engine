@@ -6,8 +6,13 @@
   <component name="ChangeListManager">
     <list default="true" id="83cc99cc-892c-4836-b340-abaa60a7085f" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/light.py" beforeDir="false" afterPath="$PROJECT_DIR$/light.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shaders/default.frag" beforeDir="false" afterPath="$PROJECT_DIR$/shaders/default.frag" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SkyBox1/back.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SkyBox1/bottom.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SkyBox1/cubemap.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SkyBox1/front.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SkyBox1/left.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SkyBox1/right.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SkyBox1/top.png" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -52,7 +57,7 @@
     "Python.shader_program.executor": "Run",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "Full-Solar-System-Simulation",
+    "git-widget-placeholder": "master",
     "last_opened_file_path": "C:/Users/USUARIO/PycharmProjects/PythonEngine/shaders",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
@@ -122,7 +127,7 @@
       <workItem from="1704218960958" duration="3484000" />
       <workItem from="1704225173517" duration="1796000" />
       <workItem from="1704280530417" duration="19242000" />
-      <workItem from="1704366975386" duration="21282000" />
+      <workItem from="1704366975386" duration="21881000" />
     </task>
     <servers />
   </component>
@@ -156,6 +161,6 @@
     <SUITE FILE_PATH="coverage/PythonEngine$model.coverage" NAME="model Coverage Results" MODIFIED="1704225808693" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/VoxelEngine$shader_program.coverage" NAME="shader_program Coverage Results" MODIFIED="1703787830040" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/VoxelEngine$main.coverage" NAME="main Coverage Results" MODIFIED="1703976291521" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/PythonEngine$main.coverage" NAME="main Coverage Results" MODIFIED="1704401873088" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/PythonEngine$main.coverage" NAME="main Coverage Results" MODIFIED="1704404439526" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>
