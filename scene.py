@@ -1,10 +1,14 @@
 from model import *
+from planet import PlanetSettings
+from settings import *
+import numpy as np
 
 
 class Scene:
     def __init__(self, app):
         self.app = app
         self.objects = []
+        self.planet_settings = PlanetSettings()
         self.load()
         # skybox
         self.skybox = SkyBox(app)
@@ -16,10 +20,19 @@ class Scene:
         app = self.app
         add = self.add_object
 
-        add(CustomPlanet(app, vao_name='earth', tex_id='earth', pos=(0, -2, -20)))
-        add(CustomPlanet(app, vao_name='mercury', tex_id='mercury', pos=(0, -2, -10), scale=(0.5, 0.5, 0.5)))
+        self.set_planet_scene()
 
     def render(self):
         for obj in self.objects:
             obj.render()
         self.skybox.render()
+
+    def set_planet_scene(self):
+        app = self.app
+        add = self.add_object
+
+        for planet in self.planet_settings.planets:
+            add(CustomPlanet(app, vao_name=planet.name, tex_id=planet.name, pos=(0, -2, -10),
+                             scale=(planet.scale, planet.scale, planet.scale), orbit_speed=planet.orbit_speed * ORBIT_SPEED_MULTIPLIER,
+                             orbit_radius=planet.orbit_radius * RADIUS_MULTIPLIER))
+

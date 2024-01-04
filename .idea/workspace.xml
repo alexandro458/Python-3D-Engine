@@ -5,23 +5,19 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="83cc99cc-892c-4836-b340-abaa60a7085f" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/planet.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SkyBox/back.png" beforeDir="false" afterPath="$PROJECT_DIR$/SkyBox/back.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SkyBox/back1.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SkyBox/bottom.png" beforeDir="false" afterPath="$PROJECT_DIR$/SkyBox/bottom.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SkyBox/bottom1.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SkyBox/front.png" beforeDir="false" afterPath="$PROJECT_DIR$/SkyBox/front.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SkyBox/front1.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SkyBox/fullcubemap.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SkyBox/left.png" beforeDir="false" afterPath="$PROJECT_DIR$/SkyBox/left.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SkyBox/left1.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SkyBox/right.png" beforeDir="false" afterPath="$PROJECT_DIR$/SkyBox/right.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SkyBox/right1.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SkyBox/top.png" beforeDir="false" afterPath="$PROJECT_DIR$/SkyBox/top.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SkyBox/top1.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SkyBox1/3D_Engine_Part2.zip" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/camera.py" beforeDir="false" afterPath="$PROJECT_DIR$/camera.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model.py" beforeDir="false" afterPath="$PROJECT_DIR$/model.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/obj/Planets/Mercury/mercury.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/scene.py" beforeDir="false" afterPath="$PROJECT_DIR$/scene.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shaders/default.frag" beforeDir="false" afterPath="$PROJECT_DIR$/shaders/default.frag" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/texture.py" beforeDir="false" afterPath="$PROJECT_DIR$/texture.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/textures/test.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/textures/test2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/textures/test3.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vao.py" beforeDir="false" afterPath="$PROJECT_DIR$/vao.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vbo.py" beforeDir="false" afterPath="$PROJECT_DIR$/vbo.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -66,7 +62,7 @@
     "Python.shader_program.executor": "Run",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "Initial-Settings",
+    "git-widget-placeholder": "Full-Solar-System-Simulation",
     "last_opened_file_path": "C:/Users/USUARIO/PycharmProjects/PythonEngine/shaders",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
@@ -136,7 +132,7 @@
       <workItem from="1704218960958" duration="3484000" />
       <workItem from="1704225173517" duration="1796000" />
       <workItem from="1704280530417" duration="19242000" />
-      <workItem from="1704366975386" duration="2776000" />
+      <workItem from="1704366975386" duration="9602000" />
     </task>
     <servers />
   </component>
@@ -160,6 +156,6 @@
     <SUITE FILE_PATH="coverage/PythonEngine$model.coverage" NAME="model Coverage Results" MODIFIED="1704225808693" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/VoxelEngine$shader_program.coverage" NAME="shader_program Coverage Results" MODIFIED="1703787830040" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/VoxelEngine$main.coverage" NAME="main Coverage Results" MODIFIED="1703976291521" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/PythonEngine$main.coverage" NAME="main Coverage Results" MODIFIED="1704372574801" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/PythonEngine$main.coverage" NAME="main Coverage Results" MODIFIED="1704380382750" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>

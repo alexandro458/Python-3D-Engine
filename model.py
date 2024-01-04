@@ -62,9 +62,30 @@ class ExtendedBaseModel(BaseModel):
 
 
 class CustomPlanet(ExtendedBaseModel):
-    def __init__(self, app, vao_name, tex_id, pos=(0, 0, 0), rot=(-90, 0, 0), scale=(1, 1, 1)):
+    def __init__(self, app, vao_name, tex_id, pos=(0, 0, 0), rot=(0, 0, 0), scale=(1, 1, 1), orbit_speed=50, orbit_radius=50):
         super().__init__(app, vao_name, tex_id, pos, rot, scale)
+        self.orbit_radius = orbit_radius
+        self.orbit_speed = orbit_speed
 
+    def update(self):
+        pos_tuple = self.calculate_orbit(self.orbit_radius, self.orbit_speed)
+        self.pos = (pos_tuple[0], -2, pos_tuple[1])
+
+        self.m_model = self.get_model_matrix()
+
+        self.texture.use()
+        self.program['m_model'].write(self.m_model)
+        self.program['m_view'].write(self.app.camera.m_view)
+        self.program['camPos'].write(self.app.camera.position)
+
+    def calculate_orbit(self, radius, speed):
+        time = self.app.time
+        angle = speed * time
+
+        x = radius * np.cos(angle)
+        z = radius * np.sin(angle)
+
+        return x, z
 
 class SkyBox(BaseModel):
     def __init__(self, app, vao_name='skybox', tex_id='skybox',
