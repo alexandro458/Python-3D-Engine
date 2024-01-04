@@ -8,6 +8,7 @@ class VBO:
         self.vbos = {}
         self.ctx = ctx
         self.vbos['skybox'] = SkyBoxVBO(ctx)
+        self.vbos['sun'] = PlanetVBO(ctx)
         self.set_planet_vbo()
 
     def set_planet_vbo(self):

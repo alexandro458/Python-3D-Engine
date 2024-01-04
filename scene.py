@@ -20,6 +20,8 @@ class Scene:
         app = self.app
         add = self.add_object
 
+        add(ExtendedBaseModel(app, vao_name='sun', tex_id='sun', pos=(0, -2, 0)))
+
         self.set_planet_scene()
 
     def render(self):

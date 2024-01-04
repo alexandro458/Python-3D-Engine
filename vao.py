@@ -14,6 +14,11 @@ class VAO:
             program=self.program.programs['skybox'],
             vbo=self.vbo.vbos['skybox'])
 
+        # sun vao
+        self.vaos["sun"] = self.get_vao(
+            program=self.program.programs['default'],
+            vbo=self.vbo.vbos['sun'])
+
         self.planet_setters()
 
     def get_vao(self, program, vbo):
