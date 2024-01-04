@@ -10,15 +10,16 @@ class Texture:
         self.textures = {}
         self.textures['earth'] = self.get_texture(path='obj/Earth/Textures/Diffuse_2K.png')
         self.textures['mercury'] = self.get_texture(path='obj/Planets/Mercury/mercury.jpg')
-        self.textures['skybox'] = self.get_texture_cube(dir_path='SkyBox1/', ext='png')
+        self.textures['skybox'] = self.get_texture_cube(dir_path='SkyBox/', ext='png')
 
 
     def get_texture_cube(self, dir_path, ext='png'):
         faces = ['right', 'left', 'top', 'bottom'] + ['front', 'back'][::-1]
+        # textures = [pg.image.load(dir_path + f'{face}.{ext}').convert() for face in faces]
         textures = []
         for face in faces:
             texture = pg.image.load(dir_path + f'{face}.{ext}').convert()
-            if face in ['right', 'left', 'top', 'bottom']:
+            if face in ['right', 'left', 'front', 'back']:
                 texture = pg.transform.flip(texture, flip_x=True, flip_y=False)
             else:
                 texture = pg.transform.flip(texture, flip_x=False, flip_y=True)
