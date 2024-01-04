@@ -9,13 +9,14 @@ class Planet:
 
 class PlanetSettings:
     def __init__(self):
-        self.mercury = Planet("mercury", 0.38, 57.9, 47.87)
-        self.venus = Planet("venus", 0.949, 108.2, 35.02)
-        self.earth = Planet("earth", 1.0, 149.6, 29.78)
-        self.mars = Planet("mars", 0.532, 227.9, 24.07)
+        self.mercury = Planet("mercury", 0.38, 70, 47.87)
+        self.venus = Planet("venus", 0.949, 120, 35.02)
+        self.earth = Planet("earth", 1.0, 170, 29.78)
+        self.mars = Planet("mars", 0.532, 230, 24.07)
         self.jupiter = Planet("jupiter", 11.209, 778.5, 13.07)
-        self.saturn = Planet("saturn", 9.449, 1433.5, 9.69)
-        self.uranus = Planet("uranus", 4.007, 2872.5, 6.81)
-        self.neptune = Planet("neptune", 3.883, 4495.1, 5.43)
+        self.saturn = Planet("saturn", 9.449, 1200, 9.69)
+        self.uranus = Planet("uranus", 4.007, 1500, 6.81)
+        self.neptune = Planet("neptune", 3.883, 2000, 5.43)
         self.planets = [self.mercury, self.venus, self.earth, self.mars,
                         self.jupiter, self.saturn, self.uranus, self.neptune]
+        self.sun = Planet("sun", 13, 0, 0)

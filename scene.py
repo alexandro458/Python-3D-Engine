@@ -20,7 +20,10 @@ class Scene:
         app = self.app
         add = self.add_object
 
-        add(ExtendedBaseModel(app, vao_name='sun', tex_id='sun', pos=(0, -2, 0)))
+        sun = self.planet_settings.sun
+        sun_scale = self.planet_settings.sun.scale * SCALE_MULTIPLIER
+        add(Sun(app, vao_name=sun.name, tex_id=sun.name, pos=(0, 0, 0),
+                              scale=(sun_scale, sun_scale, sun_scale)))
 
         self.set_planet_scene()
 
@@ -34,7 +37,8 @@ class Scene:
         add = self.add_object
 
         for planet in self.planet_settings.planets:
+            scale = planet.scale * SCALE_MULTIPLIER
             add(CustomPlanet(app, vao_name=planet.name, tex_id=planet.name, pos=(0, -2, -10),
-                             scale=(planet.scale, planet.scale, planet.scale), orbit_speed=planet.orbit_speed * ORBIT_SPEED_MULTIPLIER,
+                             scale=(scale, scale, scale),
+                             orbit_speed=planet.orbit_speed * ORBIT_SPEED_MULTIPLIER,
                              orbit_radius=planet.orbit_radius * RADIUS_MULTIPLIER))
-

@@ -16,7 +16,7 @@ class VAO:
 
         # sun vao
         self.vaos["sun"] = self.get_vao(
-            program=self.program.programs['default'],
+            program=self.program.programs['unlit'],
             vbo=self.vbo.vbos['sun'])
 
         self.planet_setters()
