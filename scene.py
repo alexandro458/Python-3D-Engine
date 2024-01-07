@@ -1,7 +1,7 @@
 from model import *
 from planet import PlanetSettings
 from settings import *
-
+import numpy as np
 
 class Scene:
     def __init__(self, app):

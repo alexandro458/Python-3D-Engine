@@ -7,6 +7,7 @@ from light import Light
 from mesh import Mesh
 from scene import Scene
 
+
 class Engine:
     def __init__(self):
         pg.init()
